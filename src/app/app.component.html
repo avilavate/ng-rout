@@ -1,8 +1,17 @@
 <h1>
   {{title}}
 </h1>
-<p><a [routerLink]="['/home']">Home</a>| <a [routerLink]="['/user', id.value]">User</a> </p>
+<p><a [routerLink]="['home']">Home</a>| <a [routerLink]="['user', id.value]">User</a> </p>
 id: <input type="text" #id>
-<hr>
-<router-outlet></router-outlet>
-<hr>
+<style>
+  legend.scheduler-border {
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+}
+</style>
+<fieldset>
+  <legend class="scheduler-border">Routing</legend>
+  <router-outlet></router-outlet>
+</fieldset>
+
