@@ -6,7 +6,7 @@ import { UserComponent } from "./user/user.component";
 const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'user', component: UserComponent }
+    { path: 'user/:id', component: UserComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes);
