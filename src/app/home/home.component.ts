@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from "@angular/router";
 
 @Component({
   selector: 'rt-home',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public rt:Router) { }
+  goToUser() {
+    this.rt.navigateByUrl("/user/fromcomponent-code");
+  }
   ngOnInit() {
   }
 

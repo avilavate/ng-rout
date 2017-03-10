@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
+import { Subscription } from "rxjs/Rx";
 
 @Component({
   selector: 'rt-user',
@@ -7,13 +9,20 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit, OnDestroy {
-    ngOnDestroy(): void {
-     console.log("ngOnDestroy: "+this.activatedRoute.snapshot.params[0]);
-    }
-  constructor(public activatedRoute:ActivatedRoute) {
-     console.log("constructor: "+this.activatedRoute.snapshot.params);
-   }
+  param: string;
+  ngOnDestroy(): void {
+   // this.sbc.unsubscribe();
+    console.log("removed subscribtion: ");
+    //this.subscription.unsubscribe();
+  }
+  constructor(public activatedRoute: ActivatedRoute) {
+   this.activatedRoute.queryParams.subscribe((param) => {
+      this.param = param['analytics'];
+    });
+    console.log("constructor: " + this.activatedRoute.snapshot.params);
+  }
   ngOnInit() {
- //   console.log("ngOnInit"+this.activatedRoute.snapshot.params[0]);
+    console.log(this.param);
+    //   console.log("ngOnInit"+this.activatedRoute.snapshot.params[0]);
   }
 }

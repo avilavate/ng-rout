@@ -1,9 +1,12 @@
 <h1>
   {{title}}
 </h1>
-<p><a [routerLink]="['home']">Home</a>| <a [routerLink]="['user', id.value]">User</a> </p>
+<p><a [routerLink]="['home']" routerLinkActive="active">Home</a>| <a [routerLink]="['user', id.value]" [queryParams]="{analytics:100}" routerLinkActive="active" >User</a> </p>
 id: <input type="text" #id>
 <style>
+  .active {
+    color:blue;
+  }
   legend.scheduler-border {
     width:inherit; /* Or auto */
     padding:0 10px; /* To give a bit of padding on the left and right */
